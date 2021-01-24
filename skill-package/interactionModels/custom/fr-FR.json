@@ -1,0 +1,59 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "hey tube",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetVideoIntent",
+                    "slots": [
+                        {
+                        "name": "videoQuery",
+                        "type": "VIDEOS"
+                        }
+                    ],
+                    "samples": [
+                        "cherche {videoQuery}",
+                        "trouve {videoQuery}",
+                        "joue {videoQuery}",
+                        "démarre {videoQuery}",
+                        "met {videoQuery}"
+                    ]
+                },
+                {
+                   "name": "AMAZON.PauseIntent",
+                   "slots": [],
+                   "samples": []
+                },
+                {
+                   "name": "AMAZON.ResumeIntent",
+                   "slots": [],
+                   "samples": []
+                }
+            ],
+            "types": [
+                {
+                   "name": "VIDEOS",
+                   "values": [
+                       {
+                       "name": {
+                           "value": "the rolling stones"
+                        }
+                    }
+                   ]
+                }
+            ]
+        }
+    }
+  }

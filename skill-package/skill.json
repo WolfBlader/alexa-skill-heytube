@@ -1,0 +1,55 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-GB": {
+          "summary": "Alexa Hey Tube Skill",
+          "examplePhrases": [
+            "Alexa open hey tube"
+          ],
+          "keywords": [
+            "audio",
+            "streaming",
+            "youtube"
+          ],
+          "name": "Hey Tube",
+          "description": "Alexa Skill to listen to youtube audio",
+          "smallIconUri": "https://alexademo.ninja/skills/logo-108.png",
+          "largeIconUri": "https://alexademo.ninja/skills/logo-512.png"
+        },
+        "fr-FR": {
+          "summary": "Alexa Hey Tube Skill",
+          "examplePhrases": [
+            "Alexa ouvre hey tube"
+          ],
+          "keywords": [
+            "audio",
+            "streaming",
+            "youtube"
+          ],
+          "name": "Hey Tube",
+          "description": "Skill Alexa pour écouter des vidéos sur youtube",
+          "smallIconUri": "https://alexademo.ninja/skills/logo-108.png",
+          "largeIconUri": "https://alexademo.ninja/skills/logo-512.png"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "STREAMING_SERVICE",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ],
+        "endpoint": {
+          "uri": "arn:aws:lambda:eu-west-1:537577779466:function:ask-heytube-default-default-1611498946858"
+        }
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}
