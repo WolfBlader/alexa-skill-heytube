@@ -1,6 +1,39 @@
 const Alexa = require("ask-sdk");
 const ytlist = require("yt-list");
 const ytdl = require("ytdl-core");
+const i18next = require('i18next');
+const sprintf = require('i18next-sprintf-postprocessor');
+
+const languageLabels = {
+    "en-GB":{
+        translation: {
+            WelcomeMessage: "Welcome to Hey Tube. Ask to play a video to start listening.",
+            RepromptMessage: "You can say, play the Whitesnake, to begin.",
+            NotSupportedMessage: "Sorry, this skill is not supported on this device.",
+            GoodbyeMessage: "Goodbye!",
+            NotValidMessage: "Sorry, this is not a valid command. Please say help to hear what you can say.",
+            NowPlayingMessage: "Playing {{TrackInfo}}"
+        }
+    },
+    "fr-FR":{
+        translation: {
+            WelcomeMessage: "Bienvenue sur Hey Tube. Demandez à lire une video pour commencer l'écoute.",
+            RepromptMessage: "Dites, lire Whitesnake, pour commencer.",
+            NotSupportedMessage: "Désolé, cette skill ne fonctionne pas avec ce dispositif.",
+            GoodbyeMessage: "Au revoir!",
+            NotValidMessage: "Désolé cette commande n'est pas valide. Demander l'aide pour connaître les commandes.",
+            NowPlayingMessage: "Lecture de {{TrackInfo}}"
+        }
+    },
+}
+
+i18next.use(sprintf).init({
+    overloadTranlationOptionHandler: sprintf.overloadTranslationOptionHandler,
+    returnObjects: true,
+    lng: "en-GB",
+    resources: languageLabels
+})
+
 
 /* INTENT HANDLERS */
 
@@ -12,9 +45,9 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     console.log("LaunchRequestHandler");
-    const message =
-      "Welcome to Single Tube. Ask to play a video to start listening.";
-    const reprompt = "You can say, play the Whitesnake, to begin.";
+    i18next.changeLanguage(handlerInput.requestEnvelope.request.locale);
+    const message = i18next.t("WelcomeMessage");
+    const reprompt = i18next.t("RepromptMessage");
     return handlerInput.responseBuilder
       .speak(message)
       .reprompt(reprompt)
@@ -31,8 +64,9 @@ const CheckAudioInterfaceHandler = {
     return audioPlayerInterface === undefined;
   },
   handle(handlerInput) {
-    return handlerInput.responseBuilder
-      .speak("Sorry, this skill is not supported on this device")
+      i18next.changeLanguage(handlerInput.requestEnvelope.request.locale);
+      return handlerInput.responseBuilder
+      .speak(i18next.t("NotSupportedMessage"))
       .withShouldEndSession(true)
       .getResponse();
   },
@@ -52,8 +86,9 @@ const GetVideoIntentHandler = {
     if (speechText) {
       return controller.search(handlerInput, speechText);
     } else {
+      i18next.changeLanguage(handlerInput.requestEnvelope.request.locale);
       return handlerInput.responseBuilder
-        .speak("You can say, play the Beatles, to begin.")
+        .speak(i18next.t("RepromptMessage"))
         .getResponse();
     }
   },
@@ -67,8 +102,8 @@ const HelpIntentHandler = {
     );
   },
   handle(handlerInput) {
-    const speakOutput =
-      "Welcome to Single tube. You can say, play video to begin.";
+    i18next.changeLanguage(handlerInput.requestEnvelope.request.locale);
+    const speakOutput = i18next.t("WelcomeMessage");
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
@@ -90,7 +125,8 @@ const CancelAndStopIntentHandler = {
   },
   handle(handlerInput) {
     console.log("CancelAndStopIntentHandler");
-    return controller.stop(handlerInput, "Goodbye!");
+    i18next.changeLanguage(handlerInput.requestEnvelope.request.locale);
+    return controller.stop(handlerInput, i18next.t("GoodByeMessage"));
   },
 };
 const SystemExceptionHandler = {
@@ -135,8 +171,8 @@ const ErrorHandler = {
     console.log("ErrorHandler");
     console.log(error);
     console.log(`Error handled: ${error.message}`);
-    const message =
-      "Sorry, this is not a valid command. Please say help to hear what you can say.";
+    i18next.changeLanguage(handlerInput.requestEnvelope.request.locale);
+    const message = i18next.t("NotValidMessage");
 
     return handlerInput.responseBuilder
       .speak(message)
@@ -194,8 +230,9 @@ const controller = {
     console.log(`${audioInfo.snippet.title}`);
     console.log(audioFormat.url);
     console.log(audioInfo.id.videoId);
+    i18next.changeLanguage(handlerInput.requestEnvelope.request.locale);
     responseBuilder
-      .speak(`Playing  ${audioInfo.snippet.title}`)
+      .speak(i18next.t("NowPlayingMessage", {TrackInfo: audioInfo.snippet.title}))
       .withShouldEndSession(true)
       .addAudioPlayerPlayDirective(
         playBehavior,
