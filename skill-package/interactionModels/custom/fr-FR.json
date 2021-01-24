@@ -28,7 +28,8 @@
                         "trouve {videoQuery}",
                         "joue {videoQuery}",
                         "démarre {videoQuery}",
-                        "met {videoQuery}"
+                        "met {videoQuery}",
+                        "lit {videoQuery}"
                     ]
                 },
                 {

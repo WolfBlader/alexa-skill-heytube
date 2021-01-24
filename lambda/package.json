@@ -14,6 +14,7 @@
         "ask-sdk-model": "^1.18.0",
         "aws-sdk": "^2.326.0",
         "i18next": "^19.8.4",
+        "i18next-sprintf-postprocessor": "^0.2.2",
         "yt-list": "^0.1.1",
         "ytdl-core": "^4.4.4"
     }
