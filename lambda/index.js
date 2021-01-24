@@ -1,8 +1,8 @@
 const Alexa = require("ask-sdk");
 const ytlist = require("yt-list");
 const ytdl = require("ytdl-core");
-const i18next = require('i18next');
-const sprintf = require('i18next-sprintf-postprocessor');
+const i18next = require("i18next");
+const sprintf = require("i18next-sprintf-postprocessor");
 
 const languageLabels = {
     "en-GB":{
@@ -24,7 +24,7 @@ const languageLabels = {
             NotValidMessage: "Désolé cette commande n'est pas valide. Demander l'aide pour connaître les commandes.",
             NowPlayingMessage: "Lecture de {{TrackInfo}}"
         }
-    },
+    }
 }
 
 i18next.use(sprintf).init({
@@ -32,7 +32,7 @@ i18next.use(sprintf).init({
     returnObjects: true,
     lng: "en-GB",
     resources: languageLabels
-})
+});
 
 
 /* INTENT HANDLERS */
