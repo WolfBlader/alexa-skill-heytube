@@ -14,8 +14,8 @@
           ],
           "name": "Hey Tube",
           "description": "Alexa Skill to listen to youtube audio",
-          "smallIconUri": "https://alexademo.ninja/skills/logo-108.png",
-          "largeIconUri": "https://alexademo.ninja/skills/logo-512.png"
+          "smallIconUri": "file://assets/en-US_smallIcon.png",
+          "largeIconUri": "file://assets/en-US_largeIcon.png"
         },
         "fr-FR": {
           "summary": "Alexa Hey Tube Skill",
@@ -29,8 +29,8 @@
           ],
           "name": "Hey Tube",
           "description": "Skill Alexa pour écouter des vidéos sur youtube",
-          "smallIconUri": "https://alexademo.ninja/skills/logo-108.png",
-          "largeIconUri": "https://alexademo.ninja/skills/logo-512.png"
+          "smallIconUri": "file://assets/en-US_smallIcon.png",
+          "largeIconUri": "file://assets/en-US_largeIcon.png"
         }
       },
       "isAvailableWorldwide": true,
