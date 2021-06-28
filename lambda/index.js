@@ -7,7 +7,7 @@ const sprintf = require("i18next-sprintf-postprocessor");
 const languageLabels = {
     "en-GB":{
         translation: {
-            WelcomeMessage: "Welcome to Hey Tube. Ask to play a video to start listening.",
+            WelcomeMessage: "Welcome to Audio Tube. Ask to play a video to start listening.",
             RepromptMessage: "You can say, play the Whitesnake, to begin.",
             NotSupportedMessage: "Sorry, this skill is not supported on this device.",
             GoodbyeMessage: "Goodbye!",
@@ -17,7 +17,7 @@ const languageLabels = {
     },
     "fr-FR":{
         translation: {
-            WelcomeMessage: "Bienvenue sur Hey Tube. Demandez à lire une video pour commencer l'écoute.",
+            WelcomeMessage: "Bienvenue sur Audio Tube. Demandez à lire une video pour commencer l'écoute.",
             RepromptMessage: "Dites, lire Whitesnake, pour commencer.",
             NotSupportedMessage: "Désolé, cette skill ne fonctionne pas avec ce dispositif.",
             GoodbyeMessage: "Au revoir!",
